@@ -1,0 +1,27 @@
+﻿@model GoogleUserInfo
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<div class="container">
+    <div class="d-flex flex-row mb-3">
+        <div class="card" style="width: 18rem;">
+            <img src="@Model.PictureUrl" class="card-img-top" alt="@Model.Name">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+                <p>@Model.Id</p>
+                <p>@Model.Email</p>
+            </div>
+        </div>
+        
+        <ul class="list-group ml-2">
+            @foreach (var propertyInfo in Model.GetType().GetProperties())
+            {
+                <li class="list-group-item">
+                    <b>@propertyInfo.Name</b> @propertyInfo.GetValue(Model)
+                </li>
+            }
+        </ul>
+    </div>
+
+</div>

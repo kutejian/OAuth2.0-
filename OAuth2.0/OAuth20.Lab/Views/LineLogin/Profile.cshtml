@@ -1,0 +1,30 @@
+﻿@model OAuth20.Lab.Models.ViewModels.LineProfileViewModel
+@using System.Reflection
+@using System.IdentityModel.Tokens.Jwt
+@{
+    ViewData["Title"] = "Profile";
+
+    var handler = new JwtSecurityTokenHandler(); 
+    var jwt = handler.ReadJwtToken(Model.IdToken);
+}
+<div class="container">
+    <div class="d-flex flex-row mb-3">
+        <div class="card" style="width: 18rem;">
+            <img src="@Model.LineProfile.PictureUrl" class="card-img-top" alt="@Model.LineProfile.DisplayName">
+            <div class="card-body">
+                <h5 class="card-title">@Model.LineProfile.DisplayName</h5>
+                <p>@Model.LineProfile.UserId</p>
+                <p>@Model.LineProfile.StatusMessage</p>
+            </div>
+        </div>
+        <ul class="list-group ml-2">
+            @foreach (var item in jwt.Claims)
+            {
+                <li class="list-group-item">
+                    <b>@item.Type</b> @item.Value
+                </li>
+            }
+        </ul>
+    </div>
+
+</div>

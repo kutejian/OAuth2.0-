@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OAuth20.Lab</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">OAuth20.Lab</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarLineNotifyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Line Notify
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarLineNotifyDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="LineNotify" asp-action="Authorize">Authorize</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="LineNotify" asp-action="Notify">Send Notify</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarLineLoginDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Line Login
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarLineLoginDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="LineLogin" asp-action="Authorize">Authorize</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="LineLogin" asp-action="Profile">Profile</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle text-dark" id="navbarLineMessageDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Line Message
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarLineMessageDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="LineMessage" asp-action="Authorize">Authorize</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="LineMessage" asp-action="SendPushMessage">Send Push Message</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle text-dark" id="navbarFacebookDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Facebook
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarFacebookDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Facebook" asp-action="Authorize">Authorize</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Facebook" asp-action="UserData">Get UserData</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle text-dark" id="navbarGoogleDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Google
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarGoogleDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Google" asp-action="Authorize">Authorize</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Google" asp-action="Profile">Profile</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle text-dark" id="navbarGithubDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Github
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarGithubDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="Github" asp-action="Authorize">Authorize</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="Github" asp-action="UserData">Get User Data</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle text-dark" id="navbarAzureDevopsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Azure Devops
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarAzureDevopsDropdown">
+                                <a class="dropdown-item" asp-area="" asp-controller="AzureDevOps" asp-action="Authorize">Authorize</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="AzureDevOps" asp-action="TaskGroups" asp-route-id="1b88de04-dc5a-4f1e-bfc4-726777f5d2ea">Task Groups</a>
+                                <a class="dropdown-item" asp-area="" asp-controller="AzureDevOps" asp-action="VariableGroups">Variable Groups</a>
+                            </div>
+                                
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - OAuth20.Lab - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

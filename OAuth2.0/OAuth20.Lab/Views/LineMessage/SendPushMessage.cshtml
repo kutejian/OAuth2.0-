@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Send Push Message";
+}
+
+<form asp-area="" asp-controller="LineMessage" asp-action="SendMessage" method="post">
+    <div class="form-group">
+        <label for="message">Message</label>
+        <input type="text" class="form-control" id="message" name="message" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>

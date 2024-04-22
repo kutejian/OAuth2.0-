@@ -1,0 +1,30 @@
+﻿@model OAuth20.Lab.Models.ViewModels.GithubUserViewModel
+@using System.Reflection
+
+@{
+    ViewData["Title"] = "User";
+}
+
+<div class="container">
+    <div class="d-flex flex-row mb-3">
+        <div class="card" style="width: 18rem;">
+            <img src="@Model.AvatarUrl" class="card-img-top" alt="@Model.Login">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Login</h5>
+                <p>@Model.Name</p>
+                <p>@Model.Email</p>
+                <p>@Model.HtmlUrl</p>
+            </div>
+        </div>
+        
+        <ul class="list-group ml-2">
+            @foreach (var propertyInfo in Model.GetType().GetProperties())
+            {
+                <li class="list-group-item">
+                    <b>@propertyInfo.Name</b> @propertyInfo.GetValue(Model)
+                </li>
+            }
+        </ul>
+    </div>
+
+</div>

@@ -1,0 +1,15 @@
+﻿@model dynamic
+@{
+    ViewData["Title"] = "User Data";
+}
+
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <img src="@Model.picture.data.url" class="card-img-top" alt="@Model.name">
+        <div class="card-body">
+            <h5 class="card-title">@Model.name</h5>
+            <p>@Model.id</p>
+            <p>@Model.email</p>
+        </div>
+    </div>
+</div>
